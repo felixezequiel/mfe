@@ -1,0 +1,16 @@
+{
+    "repositories": {
+        "zustand_mfe": {
+            "path": "../zustand",
+            "port": 5174
+        },
+        "tanstack_mfe": {
+            "path": "../tanstack",
+            "port": 5175
+        },
+        "shell": {
+            "path": "../shell",
+            "port": 5173
+        }
+    }
+}
