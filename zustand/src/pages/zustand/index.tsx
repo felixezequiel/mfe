@@ -1,16 +1,13 @@
 import { MainTitle } from "../components/mainTitle";
 import { ActionsZustand } from "../components/actions";
-import { useTanstackStore } from "tanstack_mfe/Store";
+import { useTanstackCounter } from "tanstack_mfe/Store";
 
-const RecursiveStore = () => {
-    const { count } = useTanstackStore();
 
-    return (
-        <div className="flex flex-col items-center gap-2">
-            <h2 className="text-lg font-semibold">Recursive Zustand Store</h2>
-            <p>Count: {count}</p>
-        </div>
-    );
+
+const RecursiveCount = () => {
+    const { count } = useTanstackCounter();
+
+    return <span>{count}</span>;
 }
 
 export const ZustandPage = () => {
@@ -25,7 +22,10 @@ export const ZustandPage = () => {
             
             <ActionsZustand />
 
-            <RecursiveStore />
+            <div className="flex flex-col items-center gap-2">
+                <h2 className="text-lg font-semibold">Recursive Zustand Store</h2>
+                <p>Count: <RecursiveCount /></p>
+            </div>
         </div>
     )
 }

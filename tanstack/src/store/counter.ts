@@ -1,15 +1,9 @@
-import { type StateCreator } from "zustand";
+import { create } from "zustand";
 import type { CounterStore } from "@shared/index";
 
-export const counterStore: StateCreator<CounterStore> = (set) => ({
+export const useTanstackCounter = create<CounterStore>((set) => ({
     count: 0,
-    increment: () => set((state) => { 
-        return { count: state.count + 1 }
-    }),
-    decrement: () => set((state) => {
-        return { count: state.count - 1 }
-    }),
-    setCount: (value: number) => set(() => {
-        return { count: value }
-    }),
-})
+    increment: () => set((state) => ({ count: state.count + 1 })),
+    decrement: () => set((state) => ({ count: state.count - 1 })),
+    setCount: (value: number) => set(() => ({ count: value }))
+}));

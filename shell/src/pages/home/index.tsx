@@ -12,7 +12,7 @@ const ViewCounter = () => {
 
 export const HomePage = () => {
     return (
-        <div className="grid w-full h-full gap-4 direction-row grid-cols-2">
+        <div className="grid w-full h-full gap-4 direction-row grid-cols-2 space-x-1">
             <div className="col-span-1 flex flex-col gap-4">
                 <h1 className="text-2xl font-bold">Home Page</h1>
                 <p className="text-lg">

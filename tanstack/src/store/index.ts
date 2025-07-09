@@ -1,13 +1,12 @@
-import { create } from "zustand";
-import { counterStore } from "./counter";
-import type { CounterStore } from "@shared/index";
-import { mediator } from "@shared/mediator";
-
-export const useTanstackStore = create<CounterStore>((...set) => ({
-    ...counterStore(...set)
-}));
+import { mediator } from "@shared/mediator";;
+import { useTanstackCounter } from "./counter";
+import { useHarryPotterStore } from "./harryPotter";
 
 // Subscribe to mediator events
-mediator.subscribe("increment", useTanstackStore.getState().increment);
-mediator.subscribe("decrement", useTanstackStore.getState().decrement);
-mediator.subscribe("setCount", useTanstackStore.getState().setCount);
+mediator.subscribe("increment", useTanstackCounter.getState().increment);
+mediator.subscribe("decrement", useTanstackCounter.getState().decrement);
+mediator.subscribe("setCount", useTanstackCounter.getState().setCount);
+
+mediator.subscribe("setCharacters", useHarryPotterStore.getState().setCharacters);
+
+export { useTanstackCounter, useHarryPotterStore };
